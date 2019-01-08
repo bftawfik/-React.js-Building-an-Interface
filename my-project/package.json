@@ -1,0 +1,23 @@
+{
+  "name": "reactInterface",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-connect": "^5.7.0",
+    "gulp-react": "^4.0.0",
+    "jshint-stylish": "^2.2.1",
+    "lodash": "^4.17.11",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "reactify": "^1.1.1"
+  }
+}

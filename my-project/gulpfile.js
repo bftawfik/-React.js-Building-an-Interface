@@ -1,6 +1,5 @@
 var gulp = require('gulp'),
 browserify = require('gulp-browserify'),
-webserver = require('gulp-webserver'),
 connect = require('gulp-connect');
 
 var src = './process',
@@ -8,10 +7,11 @@ app = './builds/app';
 
 gulp.task('js', function(){
   return gulp.src(src + '/js/app.js')
-  .pipe(browserify({
-    transform: 'reactify',
-    debug: true
-  }))
+  .pipe(
+    browserify({
+      transform: ["babelify"]
+    })
+  )
   .on('error', function(err){
     console.error('Error!', err.message);
   })

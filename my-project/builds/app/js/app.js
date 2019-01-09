@@ -23772,6 +23772,12 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom.default.render(_react.default.createElement("div", null, "Hello"), document.getElementById('petAppointments'));
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZha2VfMzczZjg3MjUuanMiXSwibmFtZXMiOlsiUmVhY3REb20iLCJyZW5kZXIiLCJkb2N1bWVudCIsImdldEVsZW1lbnRCeUlkIl0sIm1hcHBpbmdzIjoiOztBQUFBOztBQUNBOzs7O0FBRUFBLGtCQUFTQyxNQUFULENBQWdCLGtEQUFoQixFQUFrQ0MsUUFBUSxDQUFDQyxjQUFULENBQXdCLGlCQUF4QixDQUFsQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgUmVhY3REb20gZnJvbSAncmVhY3QtZG9tJztcblxuUmVhY3REb20ucmVuZGVyKDxkaXY+SGVsbG88L2Rpdj4sIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdwZXRBcHBvaW50bWVudHMnKSk7XG4iXX0=
+var MainInterface = function MainInterface() {
+  return _react.default.createElement("div", {
+    className: "interface"
+  }, _react.default.createElement("h1", null, "Pet Appointments"), _react.default.createElement("ul", null, _react.default.createElement("li", null, "Buffy 3:30 PM"), _react.default.createElement("li", null, "Spot 8:30 PM"), _react.default.createElement("li", null, "Goldie 3:50 PM")));
+};
+
+_reactDom.default.render(_react.default.createElement(MainInterface, null), document.getElementById('petAppointments'));
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZha2VfNmVmY2VjYjQuanMiXSwibmFtZXMiOlsiTWFpbkludGVyZmFjZSIsIlJlYWN0RG9tIiwicmVuZGVyIiwiZG9jdW1lbnQiLCJnZXRFbGVtZW50QnlJZCJdLCJtYXBwaW5ncyI6Ijs7QUFBQTs7QUFDQTs7OztBQUVBLElBQUlBLGFBQWEsR0FBRyxTQUFoQkEsYUFBZ0I7QUFBQSxTQUNsQjtBQUFLLElBQUEsU0FBUyxFQUFDO0FBQWYsS0FDRSw0REFERixFQUVFLHlDQUNFLHlEQURGLEVBRUUsd0RBRkYsRUFHRSwwREFIRixDQUZGLENBRGtCO0FBQUEsQ0FBcEI7O0FBVUFDLGtCQUFTQyxNQUFULENBQWdCLDZCQUFDLGFBQUQsT0FBaEIsRUFBa0NDLFFBQVEsQ0FBQ0MsY0FBVCxDQUF3QixpQkFBeEIsQ0FBbEMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IFJlYWN0RG9tIGZyb20gJ3JlYWN0LWRvbSc7XG5cbnZhciBNYWluSW50ZXJmYWNlID0gKCkgPT4gKFxuICA8ZGl2IGNsYXNzTmFtZT1cImludGVyZmFjZVwiPlxuICAgIDxoMT5QZXQgQXBwb2ludG1lbnRzPC9oMT5cbiAgICA8dWw+XG4gICAgICA8bGk+QnVmZnkgMzozMCBQTTwvbGk+XG4gICAgICA8bGk+U3BvdCA4OjMwIFBNPC9saT5cbiAgICAgIDxsaT5Hb2xkaWUgMzo1MCBQTTwvbGk+XG4gICAgPC91bD5cbiAgPC9kaXY+XG4pO1xuUmVhY3REb20ucmVuZGVyKDxNYWluSW50ZXJmYWNlLz4sIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdwZXRBcHBvaW50bWVudHMnKSk7XG4iXX0=
 },{"react":10,"react-dom":7}]},{},[17])

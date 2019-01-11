@@ -23775,27 +23775,80 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var AptList = function AptList(props) {
-  return _react.default.createElement("li", {
-    className: "pet-item media"
-  }, _react.default.createElement("div", {
-    className: "pet-head"
-  }, _react.default.createElement("span", {
-    className: "pet-name"
-  }, props.value.petName), _react.default.createElement("span", {
-    className: "apt-date pull-right"
-  }, props.value.aptDate)), _react.default.createElement("div", {
-    className: "owner-name"
-  }, _react.default.createElement("span", {
-    className: "label-item"
-  }, props.value.ownerName)), _react.default.createElement("div", {
-    className: "apt-notes"
-  }, props.value.aptNotes));
-};
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+var AptList =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(AptList, _React$Component);
+
+  function AptList(props) {
+    var _this;
+
+    _classCallCheck(this, AptList);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(AptList).call(this, props));
+    _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    return _this;
+  }
+
+  _createClass(AptList, [{
+    key: "handleDelete",
+    value: function handleDelete() {
+      this.props.onDelete(this.props.singleItem);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("li", {
+        className: "pet-item media"
+      }, _react.default.createElement("div", {
+        className: "media-left"
+      }, _react.default.createElement("button", {
+        className: "pet-delete btn btn-xs btn-danger",
+        onClick: this.handleDelete
+      }, _react.default.createElement("span", {
+        className: "glyphicon glyphicon-remove"
+      }))), _react.default.createElement("div", {
+        className: "pet-info media-body"
+      }, _react.default.createElement("div", {
+        className: "pet-head"
+      }, _react.default.createElement("span", {
+        className: "pet-name"
+      }, this.props.singleItem.petName), _react.default.createElement("span", {
+        className: "apt-date pull-right"
+      }, this.props.singleItem.aptDate)), _react.default.createElement("div", {
+        className: "owner-name"
+      }, _react.default.createElement("span", {
+        className: "label-item"
+      }, this.props.singleItem.ownerName)), _react.default.createElement("div", {
+        className: "apt-notes"
+      }, this.props.singleItem.aptNotes)));
+    }
+  }]);
+
+  return AptList;
+}(_react.default.Component);
 
 var _default = AptList;
 exports.default = _default;
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkFwdExpc3QuanMiXSwibmFtZXMiOlsiQXB0TGlzdCIsInByb3BzIiwidmFsdWUiLCJwZXROYW1lIiwiYXB0RGF0ZSIsIm93bmVyTmFtZSIsImFwdE5vdGVzIl0sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQUE7Ozs7QUFFQSxJQUFNQSxPQUFPLEdBQUcsU0FBVkEsT0FBVSxDQUFDQyxLQUFEO0FBQUEsU0FDZDtBQUFJLElBQUEsU0FBUyxFQUFDO0FBQWQsS0FDRTtBQUFLLElBQUEsU0FBUyxFQUFDO0FBQWYsS0FDRTtBQUFNLElBQUEsU0FBUyxFQUFDO0FBQWhCLEtBQTRCQSxLQUFLLENBQUNDLEtBQU4sQ0FBWUMsT0FBeEMsQ0FERixFQUVFO0FBQU0sSUFBQSxTQUFTLEVBQUM7QUFBaEIsS0FBdUNGLEtBQUssQ0FBQ0MsS0FBTixDQUFZRSxPQUFuRCxDQUZGLENBREYsRUFLRTtBQUFLLElBQUEsU0FBUyxFQUFDO0FBQWYsS0FDRTtBQUFNLElBQUEsU0FBUyxFQUFDO0FBQWhCLEtBQThCSCxLQUFLLENBQUNDLEtBQU4sQ0FBWUcsU0FBMUMsQ0FERixDQUxGLEVBUUU7QUFBSyxJQUFBLFNBQVMsRUFBQztBQUFmLEtBQTRCSixLQUFLLENBQUNDLEtBQU4sQ0FBWUksUUFBeEMsQ0FSRixDQURjO0FBQUEsQ0FBaEI7O2VBWWVOLE8iLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuXG5jb25zdCBBcHRMaXN0ID0gKHByb3BzKSA9PiAoXG4gIDxsaSBjbGFzc05hbWU9XCJwZXQtaXRlbSBtZWRpYVwiPlxuICAgIDxkaXYgY2xhc3NOYW1lPVwicGV0LWhlYWRcIj5cbiAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInBldC1uYW1lXCI+e3Byb3BzLnZhbHVlLnBldE5hbWV9PC9zcGFuPlxuICAgICAgPHNwYW4gY2xhc3NOYW1lPVwiYXB0LWRhdGUgcHVsbC1yaWdodFwiPntwcm9wcy52YWx1ZS5hcHREYXRlfTwvc3Bhbj5cbiAgICA8L2Rpdj5cbiAgICA8ZGl2IGNsYXNzTmFtZT1cIm93bmVyLW5hbWVcIj5cbiAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImxhYmVsLWl0ZW1cIj57cHJvcHMudmFsdWUub3duZXJOYW1lfTwvc3Bhbj5cbiAgICA8L2Rpdj5cbiAgICA8ZGl2IGNsYXNzTmFtZT1cImFwdC1ub3Rlc1wiPntwcm9wcy52YWx1ZS5hcHROb3Rlc308L2Rpdj5cbiAgPC9saT5cbik7XG5leHBvcnQgZGVmYXVsdCBBcHRMaXN0O1xuIl19
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkFwdExpc3QuanMiXSwibmFtZXMiOlsiQXB0TGlzdCIsInByb3BzIiwiaGFuZGxlRGVsZXRlIiwiYmluZCIsIm9uRGVsZXRlIiwic2luZ2xlSXRlbSIsInBldE5hbWUiLCJhcHREYXRlIiwib3duZXJOYW1lIiwiYXB0Tm90ZXMiLCJSZWFjdCIsIkNvbXBvbmVudCJdLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUFBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0lBRU1BLE87Ozs7O0FBRUosbUJBQVlDLEtBQVosRUFBa0I7QUFBQTs7QUFBQTs7QUFDaEIsaUZBQU1BLEtBQU47QUFFQSxVQUFLQyxZQUFMLEdBQW9CLE1BQUtBLFlBQUwsQ0FBa0JDLElBQWxCLHVEQUFwQjtBQUhnQjtBQUlqQjs7OzttQ0FFYTtBQUNaLFdBQUtGLEtBQUwsQ0FBV0csUUFBWCxDQUFvQixLQUFLSCxLQUFMLENBQVdJLFVBQS9CO0FBQ0Q7Ozs2QkFFTztBQUVOLGFBQ0U7QUFBSSxRQUFBLFNBQVMsRUFBQztBQUFkLFNBQ0U7QUFBSyxRQUFBLFNBQVMsRUFBQztBQUFmLFNBQ0U7QUFBUSxRQUFBLFNBQVMsRUFBQyxrQ0FBbEI7QUFBcUQsUUFBQSxPQUFPLEVBQUUsS0FBS0g7QUFBbkUsU0FBaUY7QUFBTSxRQUFBLFNBQVMsRUFBQztBQUFoQixRQUFqRixDQURGLENBREYsRUFJRTtBQUFLLFFBQUEsU0FBUyxFQUFDO0FBQWYsU0FDRTtBQUFLLFFBQUEsU0FBUyxFQUFDO0FBQWYsU0FDRTtBQUFNLFFBQUEsU0FBUyxFQUFDO0FBQWhCLFNBQTRCLEtBQUtELEtBQUwsQ0FBV0ksVUFBWCxDQUFzQkMsT0FBbEQsQ0FERixFQUVFO0FBQU0sUUFBQSxTQUFTLEVBQUM7QUFBaEIsU0FBdUMsS0FBS0wsS0FBTCxDQUFXSSxVQUFYLENBQXNCRSxPQUE3RCxDQUZGLENBREYsRUFLRTtBQUFLLFFBQUEsU0FBUyxFQUFDO0FBQWYsU0FDRTtBQUFNLFFBQUEsU0FBUyxFQUFDO0FBQWhCLFNBQThCLEtBQUtOLEtBQUwsQ0FBV0ksVUFBWCxDQUFzQkcsU0FBcEQsQ0FERixDQUxGLEVBUUU7QUFBSyxRQUFBLFNBQVMsRUFBQztBQUFmLFNBQTRCLEtBQUtQLEtBQUwsQ0FBV0ksVUFBWCxDQUFzQkksUUFBbEQsQ0FSRixDQUpGLENBREY7QUFpQkQ7Ozs7RUEvQm1CQyxlQUFNQyxTOztlQWtDYlgsTyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5cbmNsYXNzIEFwdExpc3QgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnR7XG5cbiAgY29uc3RydWN0b3IocHJvcHMpe1xuICAgIHN1cGVyKHByb3BzKTtcblxuICAgIHRoaXMuaGFuZGxlRGVsZXRlID0gdGhpcy5oYW5kbGVEZWxldGUuYmluZCh0aGlzKTtcbiAgfVxuXG4gIGhhbmRsZURlbGV0ZSgpe1xuICAgIHRoaXMucHJvcHMub25EZWxldGUodGhpcy5wcm9wcy5zaW5nbGVJdGVtKTtcbiAgfVxuXG4gIHJlbmRlcigpe1xuXG4gICAgcmV0dXJuKFxuICAgICAgPGxpIGNsYXNzTmFtZT1cInBldC1pdGVtIG1lZGlhXCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibWVkaWEtbGVmdFwiPlxuICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwicGV0LWRlbGV0ZSBidG4gYnRuLXhzIGJ0bi1kYW5nZXJcIiBvbkNsaWNrPXt0aGlzLmhhbmRsZURlbGV0ZX0+PHNwYW4gY2xhc3NOYW1lPVwiZ2x5cGhpY29uIGdseXBoaWNvbi1yZW1vdmVcIj48L3NwYW4+PC9idXR0b24+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInBldC1pbmZvIG1lZGlhLWJvZHlcIj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInBldC1oZWFkXCI+XG4gICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJwZXQtbmFtZVwiPnt0aGlzLnByb3BzLnNpbmdsZUl0ZW0ucGV0TmFtZX08L3NwYW4+XG4gICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJhcHQtZGF0ZSBwdWxsLXJpZ2h0XCI+e3RoaXMucHJvcHMuc2luZ2xlSXRlbS5hcHREYXRlfTwvc3Bhbj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm93bmVyLW5hbWVcIj5cbiAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImxhYmVsLWl0ZW1cIj57dGhpcy5wcm9wcy5zaW5nbGVJdGVtLm93bmVyTmFtZX08L3NwYW4+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJhcHQtbm90ZXNcIj57dGhpcy5wcm9wcy5zaW5nbGVJdGVtLmFwdE5vdGVzfTwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvbGk+XG4gICAgKTtcbiAgfVxuXG59XG5leHBvcnQgZGVmYXVsdCBBcHRMaXN0O1xuIl19
 },{"react":10}],18:[function(require,module,exports){
 "use strict";
 
@@ -23817,13 +23870,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 var MainInterface =
 /*#__PURE__*/
@@ -23839,6 +23892,7 @@ function (_React$Component) {
     _this.state = {
       myAppointment: []
     };
+    _this.deleteMessage = _this.deleteMessage.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -23858,12 +23912,26 @@ function (_React$Component) {
       this.serverRequest.abort();
     }
   }, {
+    key: "deleteMessage",
+    value: function deleteMessage(item) {
+      console.log(item);
+      this.setState({
+        myAppointment: this.state.myAppointment.filter(function (value) {
+          return value !== item;
+        })
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var filteredApts = this.state.myAppointment.map(function (value, index) {
         return _react.default.createElement(_AptList.default, {
-          value: value,
-          key: index
+          key: index,
+          singleItem: value,
+          whichItem: value,
+          onDelete: _this2.deleteMessage
         });
       });
       return _react.default.createElement("div", {
@@ -23878,5 +23946,5 @@ function (_React$Component) {
 }(_react.default.Component);
 
 _reactDom.default.render(_react.default.createElement(MainInterface, null), document.getElementById('petAppointments'));
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZha2VfNTRhZWI4OGYuanMiXSwibmFtZXMiOlsiTWFpbkludGVyZmFjZSIsInByb3BzIiwic3RhdGUiLCJteUFwcG9pbnRtZW50Iiwic2VydmVyUmVxdWVzdCIsIiQiLCJnZXQiLCJyZXN1bHQiLCJ0ZW1wQXB0cyIsInNldFN0YXRlIiwiYmluZCIsImFib3J0IiwiZmlsdGVyZWRBcHRzIiwibWFwIiwidmFsdWUiLCJpbmRleCIsIlJlYWN0IiwiQ29tcG9uZW50IiwiUmVhY3REb20iLCJyZW5kZXIiLCJkb2N1bWVudCIsImdldEVsZW1lbnRCeUlkIl0sIm1hcHBpbmdzIjoiOztBQUFBOztBQUNBOztBQUNBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0lBR01BLGE7Ozs7O0FBRUoseUJBQVlDLEtBQVosRUFBa0I7QUFBQTs7QUFBQTs7QUFDaEIsdUZBQU1BLEtBQU47QUFDQSxVQUFLQyxLQUFMLEdBQWE7QUFDWEMsTUFBQUEsYUFBYSxFQUFFO0FBREosS0FBYjtBQUZnQjtBQUtqQjs7Ozt3Q0FFa0I7QUFDakIsV0FBS0MsYUFBTCxHQUFxQkMsQ0FBQyxDQUFDQyxHQUFGLENBQU0sZ0JBQU4sRUFBd0IsVUFBU0MsTUFBVCxFQUFnQjtBQUMzRCxZQUFJQyxRQUFRLEdBQUdELE1BQWY7QUFDQSxhQUFLRSxRQUFMLENBQWM7QUFBQ04sVUFBQUEsYUFBYSxFQUFFSztBQUFoQixTQUFkO0FBQ0QsT0FINEMsQ0FHM0NFLElBSDJDLENBR3RDLElBSHNDLENBQXhCLENBQXJCO0FBSUQ7OzsyQ0FFcUI7QUFDcEIsV0FBS04sYUFBTCxDQUFtQk8sS0FBbkI7QUFDRDs7OzZCQUVPO0FBQ04sVUFBTUMsWUFBWSxHQUFHLEtBQUtWLEtBQUwsQ0FBV0MsYUFBWCxDQUF5QlUsR0FBekIsQ0FBNkIsVUFBQ0MsS0FBRCxFQUFRQyxLQUFSO0FBQUEsZUFBa0IsNkJBQUMsZ0JBQUQ7QUFBUyxVQUFBLEtBQUssRUFBRUQsS0FBaEI7QUFBd0IsVUFBQSxHQUFHLEVBQUVDO0FBQTdCLFVBQWxCO0FBQUEsT0FBN0IsQ0FBckI7QUFDQSxhQUNFO0FBQUssUUFBQSxTQUFTLEVBQUM7QUFBZixTQUNFO0FBQUksUUFBQSxTQUFTLEVBQUM7QUFBZCxTQUF1Q0gsWUFBdkMsQ0FERixDQURGO0FBS0Q7Ozs7RUEzQnlCSSxlQUFNQyxTOztBQStCbENDLGtCQUFTQyxNQUFULENBQWdCLDZCQUFDLGFBQUQsT0FBaEIsRUFBa0NDLFFBQVEsQ0FBQ0MsY0FBVCxDQUF3QixpQkFBeEIsQ0FBbEMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IFJlYWN0RG9tIGZyb20gJ3JlYWN0LWRvbSc7XG5pbXBvcnQgQXB0TGlzdCBmcm9tICcuL0FwdExpc3QnO1xuXG5cbmNsYXNzIE1haW5JbnRlcmZhY2UgZXh0ZW5kcyBSZWFjdC5Db21wb25lbnR7XG5cbiAgY29uc3RydWN0b3IocHJvcHMpe1xuICAgIHN1cGVyKHByb3BzKTtcbiAgICB0aGlzLnN0YXRlID0ge1xuICAgICAgbXlBcHBvaW50bWVudDogW11cbiAgICB9O1xuICB9XG5cbiAgY29tcG9uZW50RGlkTW91bnQoKXtcbiAgICB0aGlzLnNlcnZlclJlcXVlc3QgPSAkLmdldCgnLi9qcy9kYXRhLmpzb24nLCBmdW5jdGlvbihyZXN1bHQpe1xuICAgICAgdmFyIHRlbXBBcHRzID0gcmVzdWx0O1xuICAgICAgdGhpcy5zZXRTdGF0ZSh7bXlBcHBvaW50bWVudDogdGVtcEFwdHN9KTtcbiAgICB9LmJpbmQodGhpcykpO1xuICB9XG5cbiAgY29tcG9uZW50V2lsbFVubW91bnQoKXtcbiAgICB0aGlzLnNlcnZlclJlcXVlc3QuYWJvcnQoKTtcbiAgfVxuXG4gIHJlbmRlcigpe1xuICAgIGNvbnN0IGZpbHRlcmVkQXB0cyA9IHRoaXMuc3RhdGUubXlBcHBvaW50bWVudC5tYXAoKHZhbHVlLCBpbmRleCkgPT4gPEFwdExpc3QgdmFsdWU9e3ZhbHVlfSAga2V5PXtpbmRleH0vPik7XG4gICAgcmV0dXJuKFxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJpbnRlcmZhY2VcIj5cbiAgICAgICAgPHVsIGNsYXNzTmFtZT1cIml0ZW0tbGlzdCBtZWRpYS1saXN0XCI+eyBmaWx0ZXJlZEFwdHMgfTwvdWw+XG4gICAgICA8L2Rpdj5cbiAgICApXG4gIH1cblxufVxuXG5SZWFjdERvbS5yZW5kZXIoPE1haW5JbnRlcmZhY2UvPiwgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3BldEFwcG9pbnRtZW50cycpKTtcbiJdfQ==
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZha2VfYmE1YmU1MjMuanMiXSwibmFtZXMiOlsiTWFpbkludGVyZmFjZSIsInByb3BzIiwic3RhdGUiLCJteUFwcG9pbnRtZW50IiwiZGVsZXRlTWVzc2FnZSIsImJpbmQiLCJzZXJ2ZXJSZXF1ZXN0IiwiJCIsImdldCIsInJlc3VsdCIsInRlbXBBcHRzIiwic2V0U3RhdGUiLCJhYm9ydCIsIml0ZW0iLCJjb25zb2xlIiwibG9nIiwiZmlsdGVyIiwidmFsdWUiLCJmaWx0ZXJlZEFwdHMiLCJtYXAiLCJpbmRleCIsIlJlYWN0IiwiQ29tcG9uZW50IiwiUmVhY3REb20iLCJyZW5kZXIiLCJkb2N1bWVudCIsImdldEVsZW1lbnRCeUlkIl0sIm1hcHBpbmdzIjoiOztBQUFBOztBQUNBOztBQUNBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0lBR01BLGE7Ozs7O0FBRUoseUJBQVlDLEtBQVosRUFBa0I7QUFBQTs7QUFBQTs7QUFDaEIsdUZBQU1BLEtBQU47QUFDQSxVQUFLQyxLQUFMLEdBQWE7QUFDWEMsTUFBQUEsYUFBYSxFQUFFO0FBREosS0FBYjtBQUlBLFVBQUtDLGFBQUwsR0FBcUIsTUFBS0EsYUFBTCxDQUFtQkMsSUFBbkIsdURBQXJCO0FBTmdCO0FBT2pCOzs7O3dDQUVrQjtBQUNqQixXQUFLQyxhQUFMLEdBQXFCQyxDQUFDLENBQUNDLEdBQUYsQ0FBTSxnQkFBTixFQUF3QixVQUFTQyxNQUFULEVBQWdCO0FBQzNELFlBQUlDLFFBQVEsR0FBR0QsTUFBZjtBQUNBLGFBQUtFLFFBQUwsQ0FBYztBQUFDUixVQUFBQSxhQUFhLEVBQUVPO0FBQWhCLFNBQWQ7QUFDRCxPQUg0QyxDQUczQ0wsSUFIMkMsQ0FHdEMsSUFIc0MsQ0FBeEIsQ0FBckI7QUFJRDs7OzJDQUVxQjtBQUNwQixXQUFLQyxhQUFMLENBQW1CTSxLQUFuQjtBQUNEOzs7a0NBRWFDLEksRUFBSztBQUNqQkMsTUFBQUEsT0FBTyxDQUFDQyxHQUFSLENBQVlGLElBQVo7QUFDQSxXQUFLRixRQUFMLENBQWM7QUFBQ1IsUUFBQUEsYUFBYSxFQUFFLEtBQUtELEtBQUwsQ0FBV0MsYUFBWCxDQUF5QmEsTUFBekIsQ0FBZ0MsVUFBQUMsS0FBSztBQUFBLGlCQUFJQSxLQUFLLEtBQUtKLElBQWQ7QUFBQSxTQUFyQztBQUFoQixPQUFkO0FBQ0Q7Ozs2QkFFTztBQUFBOztBQUNOLFVBQU1LLFlBQVksR0FBRyxLQUFLaEIsS0FBTCxDQUFXQyxhQUFYLENBQXlCZ0IsR0FBekIsQ0FBNkIsVUFBQ0YsS0FBRCxFQUFRRyxLQUFSO0FBQUEsZUFBa0IsNkJBQUMsZ0JBQUQ7QUFBUyxVQUFBLEdBQUcsRUFBRUEsS0FBZDtBQUFxQixVQUFBLFVBQVUsRUFBRUgsS0FBakM7QUFBd0MsVUFBQSxTQUFTLEVBQUVBLEtBQW5EO0FBQTBELFVBQUEsUUFBUSxFQUFFLE1BQUksQ0FBQ2I7QUFBekUsVUFBbEI7QUFBQSxPQUE3QixDQUFyQjtBQUNBLGFBQ0U7QUFBSyxRQUFBLFNBQVMsRUFBQztBQUFmLFNBQ0U7QUFBSSxRQUFBLFNBQVMsRUFBQztBQUFkLFNBQXVDYyxZQUF2QyxDQURGLENBREY7QUFLRDs7OztFQWxDeUJHLGVBQU1DLFM7O0FBc0NsQ0Msa0JBQVNDLE1BQVQsQ0FBZ0IsNkJBQUMsYUFBRCxPQUFoQixFQUFrQ0MsUUFBUSxDQUFDQyxjQUFULENBQXdCLGlCQUF4QixDQUFsQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgUmVhY3REb20gZnJvbSAncmVhY3QtZG9tJztcbmltcG9ydCBBcHRMaXN0IGZyb20gJy4vQXB0TGlzdCc7XG5cblxuY2xhc3MgTWFpbkludGVyZmFjZSBleHRlbmRzIFJlYWN0LkNvbXBvbmVudHtcblxuICBjb25zdHJ1Y3Rvcihwcm9wcyl7XG4gICAgc3VwZXIocHJvcHMpO1xuICAgIHRoaXMuc3RhdGUgPSB7XG4gICAgICBteUFwcG9pbnRtZW50OiBbXVxuICAgIH07XG5cbiAgICB0aGlzLmRlbGV0ZU1lc3NhZ2UgPSB0aGlzLmRlbGV0ZU1lc3NhZ2UuYmluZCh0aGlzKTtcbiAgfVxuXG4gIGNvbXBvbmVudERpZE1vdW50KCl7XG4gICAgdGhpcy5zZXJ2ZXJSZXF1ZXN0ID0gJC5nZXQoJy4vanMvZGF0YS5qc29uJywgZnVuY3Rpb24ocmVzdWx0KXtcbiAgICAgIHZhciB0ZW1wQXB0cyA9IHJlc3VsdDtcbiAgICAgIHRoaXMuc2V0U3RhdGUoe215QXBwb2ludG1lbnQ6IHRlbXBBcHRzfSk7XG4gICAgfS5iaW5kKHRoaXMpKTtcbiAgfVxuXG4gIGNvbXBvbmVudFdpbGxVbm1vdW50KCl7XG4gICAgdGhpcy5zZXJ2ZXJSZXF1ZXN0LmFib3J0KCk7XG4gIH1cblxuICBkZWxldGVNZXNzYWdlKGl0ZW0pe1xuICAgIGNvbnNvbGUubG9nKGl0ZW0pO1xuICAgIHRoaXMuc2V0U3RhdGUoe215QXBwb2ludG1lbnQ6IHRoaXMuc3RhdGUubXlBcHBvaW50bWVudC5maWx0ZXIodmFsdWUgPT4gdmFsdWUgIT09IGl0ZW0pfSk7XG4gIH1cblxuICByZW5kZXIoKXtcbiAgICBjb25zdCBmaWx0ZXJlZEFwdHMgPSB0aGlzLnN0YXRlLm15QXBwb2ludG1lbnQubWFwKCh2YWx1ZSwgaW5kZXgpID0+IDxBcHRMaXN0IGtleT17aW5kZXh9IHNpbmdsZUl0ZW09e3ZhbHVlfSB3aGljaEl0ZW09e3ZhbHVlfSBvbkRlbGV0ZT17dGhpcy5kZWxldGVNZXNzYWdlfS8+KTtcbiAgICByZXR1cm4oXG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImludGVyZmFjZVwiPlxuICAgICAgICA8dWwgY2xhc3NOYW1lPVwiaXRlbS1saXN0IG1lZGlhLWxpc3RcIj57IGZpbHRlcmVkQXB0cyB9PC91bD5cbiAgICAgIDwvZGl2PlxuICAgIClcbiAgfVxuXG59XG5cblJlYWN0RG9tLnJlbmRlcig8TWFpbkludGVyZmFjZS8+LCBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncGV0QXBwb2ludG1lbnRzJykpO1xuIl19
 },{"./AptList":17,"react":10,"react-dom":7}]},{},[18])

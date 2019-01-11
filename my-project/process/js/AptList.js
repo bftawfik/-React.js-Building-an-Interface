@@ -1,15 +1,37 @@
 import React from 'react';
 
-const AptList = (props) => (
-  <li className="pet-item media">
-    <div className="pet-head">
-      <span className="pet-name">{props.value.petName}</span>
-      <span className="apt-date pull-right">{props.value.aptDate}</span>
-    </div>
-    <div className="owner-name">
-      <span className="label-item">{props.value.ownerName}</span>
-    </div>
-    <div className="apt-notes">{props.value.aptNotes}</div>
-  </li>
-);
+class AptList extends React.Component{
+
+  constructor(props){
+    super(props);
+
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  handleDelete(){
+    this.props.onDelete(this.props.singleItem);
+  }
+
+  render(){
+
+    return(
+      <li className="pet-item media">
+        <div className="media-left">
+          <button className="pet-delete btn btn-xs btn-danger" onClick={this.handleDelete}><span className="glyphicon glyphicon-remove"></span></button>
+        </div>
+        <div className="pet-info media-body">
+          <div className="pet-head">
+            <span className="pet-name">{this.props.singleItem.petName}</span>
+            <span className="apt-date pull-right">{this.props.singleItem.aptDate}</span>
+          </div>
+          <div className="owner-name">
+            <span className="label-item">{this.props.singleItem.ownerName}</span>
+          </div>
+          <div className="apt-notes">{this.props.singleItem.aptNotes}</div>
+        </div>
+      </li>
+    );
+  }
+
+}
 export default AptList;

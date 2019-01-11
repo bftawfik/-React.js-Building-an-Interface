@@ -10,6 +10,8 @@ class MainInterface extends React.Component{
     this.state = {
       myAppointment: []
     };
+
+    this.deleteMessage = this.deleteMessage.bind(this);
   }
 
   componentDidMount(){
@@ -23,8 +25,13 @@ class MainInterface extends React.Component{
     this.serverRequest.abort();
   }
 
+  deleteMessage(item){
+    console.log(item);
+    this.setState({myAppointment: this.state.myAppointment.filter(value => value !== item)});
+  }
+
   render(){
-    const filteredApts = this.state.myAppointment.map((value, index) => <AptList value={value}  key={index}/>);
+    const filteredApts = this.state.myAppointment.map((value, index) => <AptList key={index} singleItem={value} whichItem={value} onDelete={this.deleteMessage}/>);
     return(
       <div className="interface">
         <ul className="item-list media-list">{ filteredApts }</ul>

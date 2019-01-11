@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import AptList from './AptList';
+import AddAppointment from './AddAppointment';
+
 
 
 class MainInterface extends React.Component{
@@ -8,10 +10,12 @@ class MainInterface extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      myAppointment: []
+      myAppointment: [],
+      aptBodyVisible: false
     };
 
     this.deleteMessage = this.deleteMessage.bind(this);
+    this.toggleAddDisplay = this.toggleAddDisplay.bind(this);
   }
 
   componentDidMount(){
@@ -30,10 +34,15 @@ class MainInterface extends React.Component{
     this.setState({myAppointment: this.state.myAppointment.filter(value => value !== item)});
   }
 
+  toggleAddDisplay(){
+    this.setState({aptBodyVisible: !this.state.aptBodyVisible});
+  }
+
   render(){
     const filteredApts = this.state.myAppointment.map((value, index) => <AptList key={index} singleItem={value} whichItem={value} onDelete={this.deleteMessage}/>);
     return(
       <div className="interface">
+        <AddAppointment bodyVisible={this.state.aptBodyVisible} handleToggle={this.toggleAddDisplay}/>
         <ul className="item-list media-list">{ filteredApts }</ul>
       </div>
     )

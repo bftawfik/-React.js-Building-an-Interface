@@ -12,7 +12,9 @@ class MainInterface extends React.Component{
     super(props);
     this.state = {
       myAppointment: [],
-      aptBodyVisible: false
+      aptBodyVisible: false,
+      orderBy: 'petName',
+      orderDir: 'asc'
     };
 
     this.deleteMessage = this.deleteMessage.bind(this);
@@ -45,10 +47,13 @@ class MainInterface extends React.Component{
   }
 
   render(){
-    const filteredApts = this.state.myAppointment.map((value, index) => <AptList key={index} singleItem={value} whichItem={value} onDelete={this.deleteMessage}/>);
+    const sortValues = this.state.orderDir === 'asc' ? [-1, 1] : this.state.orderDir === 'desc' ? [1, -1] : null
+    const filteredApts = this.state.myAppointment.sort((itemA, itemB) => itemA[this.state.orderBy].toLowerCase() < itemB[this.state.orderBy].toLowerCase() ? sortValues[0] : sortValues[1])
+    .map((value, index) => <AptList key={index} singleItem={value} whichItem={value} onDelete={this.deleteMessage}/>);
+    console.log(filteredApts);
     return(
       <div className="interface">
-        <SearchAppointments/>
+        <SearchAppointments orderBy={this.state.orderBy} orderDir={this.state.orderDir}/>
         <AddAppointment bodyVisible={this.state.aptBodyVisible} handleToggle={this.toggleAddDisplay} addApt={this.AddItem}/>
         <ul className="item-list media-list">{ filteredApts }</ul>
       </div>

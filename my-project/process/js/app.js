@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import AptList from './AptList';
 import AddAppointment from './AddAppointment';
+import SearchAppointments from './SearchAppointments';
 
 
 
@@ -47,6 +48,7 @@ class MainInterface extends React.Component{
     const filteredApts = this.state.myAppointment.map((value, index) => <AptList key={index} singleItem={value} whichItem={value} onDelete={this.deleteMessage}/>);
     return(
       <div className="interface">
+        <SearchAppointments/>
         <AddAppointment bodyVisible={this.state.aptBodyVisible} handleToggle={this.toggleAddDisplay} addApt={this.AddItem}/>
         <ul className="item-list media-list">{ filteredApts }</ul>
       </div>

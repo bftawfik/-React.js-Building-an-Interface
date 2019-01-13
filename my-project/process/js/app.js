@@ -13,13 +13,15 @@ class MainInterface extends React.Component{
     this.state = {
       myAppointment: [],
       aptBodyVisible: false,
-      orderBy: 'petName',
-      orderDir: 'asc'
+      orderBy: 'aptDate',
+      orderDir: 'desc'
     };
 
     this.deleteMessage = this.deleteMessage.bind(this);
     this.toggleAddDisplay = this.toggleAddDisplay.bind(this);
     this.AddItem = this.AddItem.bind(this);
+    this.sortByHandelar = this.sortByHandelar.bind(this);
+    this.sortDirHandelar = this.sortDirHandelar.bind(this);
   }
 
   componentDidMount(){
@@ -46,14 +48,21 @@ class MainInterface extends React.Component{
     this.setState({myAppointment: [...this.state.myAppointment, item]})
   }
 
+  sortByHandelar(value){
+    this.setState({orderBy: value});
+  }
+
+  sortDirHandelar(value){
+    this.setState({orderDir: value});
+  }
+
   render(){
     const sortValues = this.state.orderDir === 'asc' ? [-1, 1] : this.state.orderDir === 'desc' ? [1, -1] : null
     const filteredApts = this.state.myAppointment.sort((itemA, itemB) => itemA[this.state.orderBy].toLowerCase() < itemB[this.state.orderBy].toLowerCase() ? sortValues[0] : sortValues[1])
     .map((value, index) => <AptList key={index} singleItem={value} whichItem={value} onDelete={this.deleteMessage}/>);
-    console.log(filteredApts);
     return(
       <div className="interface">
-        <SearchAppointments orderBy={this.state.orderBy} orderDir={this.state.orderDir}/>
+        <SearchAppointments orderBy={this.state.orderBy} orderDir={this.state.orderDir} sortByHandelar={this.sortByHandelar} sortDirHandelar={this.sortDirHandelar}/>
         <AddAppointment bodyVisible={this.state.aptBodyVisible} handleToggle={this.toggleAddDisplay} addApt={this.AddItem}/>
         <ul className="item-list media-list">{ filteredApts }</ul>
       </div>

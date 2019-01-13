@@ -16,6 +16,7 @@ class MainInterface extends React.Component{
 
     this.deleteMessage = this.deleteMessage.bind(this);
     this.toggleAddDisplay = this.toggleAddDisplay.bind(this);
+    this.AddItem = this.AddItem.bind(this);
   }
 
   componentDidMount(){
@@ -38,11 +39,15 @@ class MainInterface extends React.Component{
     this.setState({aptBodyVisible: !this.state.aptBodyVisible});
   }
 
+  AddItem(item){
+    this.setState({myAppointment: [...this.state.myAppointment, item]})
+  }
+
   render(){
     const filteredApts = this.state.myAppointment.map((value, index) => <AptList key={index} singleItem={value} whichItem={value} onDelete={this.deleteMessage}/>);
     return(
       <div className="interface">
-        <AddAppointment bodyVisible={this.state.aptBodyVisible} handleToggle={this.toggleAddDisplay}/>
+        <AddAppointment bodyVisible={this.state.aptBodyVisible} handleToggle={this.toggleAddDisplay} addApt={this.AddItem}/>
         <ul className="item-list media-list">{ filteredApts }</ul>
       </div>
     )

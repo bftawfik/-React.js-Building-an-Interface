@@ -5,10 +5,22 @@ class AddAppointment extends React.Component{
   constructor(props){
     super(props);
     this.toggleAptDisplay = this.toggleAptDisplay.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
   }
 
   toggleAptDisplay(){
     this.props.handleToggle();
+  }
+
+  handleAdd(e){
+    e.preventDefault();
+    let data={
+      "petName": this.refs.inputPetName.value,
+      "ownerName": this.refs.inputOwnerName.value,
+      "aptDate": this.refs.inputAptDate.value+" "+this.refs.inputAptTime.value,
+      "aptNotes": this.refs.inputAptNotes.value
+    }
+    this.props.addApt(data);
   }
 
   render(){
@@ -57,7 +69,7 @@ class AddAppointment extends React.Component{
             </div>
             <div className="form-group">
               <div className="col-sm-offset-2 col-sm-10">
-                <button type="submit" className="btn btn-primary pull-right">Add Appointment</button>
+                <button type="submit" className="btn btn-primary pull-right" onClick={this.handleAdd}>Add Appointment</button>
               </div>
             </div>
           </form>

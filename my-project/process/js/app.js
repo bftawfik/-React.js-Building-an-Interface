@@ -14,7 +14,8 @@ class MainInterface extends React.Component{
       myAppointment: [],
       aptBodyVisible: false,
       orderBy: 'aptDate',
-      orderDir: 'desc'
+      orderDir: 'desc',
+      query: ''
     };
 
     this.deleteMessage = this.deleteMessage.bind(this);
@@ -22,6 +23,7 @@ class MainInterface extends React.Component{
     this.AddItem = this.AddItem.bind(this);
     this.sortByHandelar = this.sortByHandelar.bind(this);
     this.sortDirHandelar = this.sortDirHandelar.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   componentDidMount(){
@@ -56,13 +58,20 @@ class MainInterface extends React.Component{
     this.setState({orderDir: value});
   }
 
+  handleSearch(value){
+    this.setState({query: value.toLowerCase()})
+  }
+
   render(){
-    const sortValues = this.state.orderDir === 'asc' ? [-1, 1] : this.state.orderDir === 'desc' ? [1, -1] : null
+    const sortValues = this.state.orderDir === 'asc' ? [-1, 1] : this.state.orderDir === 'desc' ? [1, -1] : null;
+
     const filteredApts = this.state.myAppointment.sort((itemA, itemB) => itemA[this.state.orderBy].toLowerCase() < itemB[this.state.orderBy].toLowerCase() ? sortValues[0] : sortValues[1])
+    .filter(item => !item.petName.toLowerCase().indexOf(this.state.query) || !item.ownerName.toLowerCase().indexOf(this.state.query) || !item.aptDate.toLowerCase().indexOf(this.state.query) || !item.aptNotes.toLowerCase().indexOf(this.state.query))
     .map((value, index) => <AptList key={index} singleItem={value} whichItem={value} onDelete={this.deleteMessage}/>);
+
     return(
       <div className="interface">
-        <SearchAppointments orderBy={this.state.orderBy} orderDir={this.state.orderDir} sortByHandelar={this.sortByHandelar} sortDirHandelar={this.sortDirHandelar}/>
+        <SearchAppointments orderBy={this.state.orderBy} orderDir={this.state.orderDir} sortByHandelar={this.sortByHandelar} sortDirHandelar={this.sortDirHandelar} handleSearch={this.handleSearch}/>
         <AddAppointment bodyVisible={this.state.aptBodyVisible} handleToggle={this.toggleAddDisplay} addApt={this.AddItem}/>
         <ul className="item-list media-list">{ filteredApts }</ul>
       </div>
